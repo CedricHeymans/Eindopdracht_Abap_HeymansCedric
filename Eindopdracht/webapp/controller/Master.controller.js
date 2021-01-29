@@ -200,10 +200,9 @@ sap.ui.define([
         onPressAdd() {
             /*add operation*/
             var oModel = this.getView().getModel();
-            var oParameters = {
-                "ProductId": this.getView().getBindingContext().getProperty("ProductId")
-            };
 
+            sap.m.MessageToast.show("Method not fully implemented");
+            
             //Succes,foutmelding sturen           
             oModel.callFunction("/CreateProduct", {
                 success: function (oData, response) {
@@ -213,7 +212,6 @@ sap.ui.define([
                     sap.m.MessageToast.show("Error!");
                 }.bind(this)
             });
-            this._toggleButtonsAndView(false);
         },
 
         onPressSearch() {

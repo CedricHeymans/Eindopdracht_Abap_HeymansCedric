@@ -81,11 +81,11 @@ sap.ui.define([
             if (oDataModel.hasPendingChanges()) {
                 oDataModel.submitChanges({
                     success: function (oDataModel) {
-                        sap.m.MessageToast.show("Model Saved");
+                        sap.m.MessageToast.show("Changes Saved");
                         this.getView().getModel().refresh();
                     }.bind(this),
                     error: function (oError) {
-                        sap.m.MessageToast.show("Error!");
+                        sap.m.MessageToast.show("Error, something went wrong!");
                     }
                 });
             }
