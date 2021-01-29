@@ -1,0 +1,78 @@
+<mvc:View
+	controllerName="be.ap.Eindopdracht.controller.Detail"
+	xmlns="sap.m"
+	xmlns:semantic="sap.f.semantic"
+	xmlns:mvc="sap.ui.core.mvc">
+
+	<semantic:SemanticPage
+		id="detailPage"
+		busy="{detailView>/busy}"
+		busyIndicatorDelay="{detailView>/delay}">
+		<semantic:titleHeading>
+			<Title
+				text="Product details"
+				level="H2"/>
+		</semantic:titleHeading>
+		<semantic:headerContent>
+        <ObjectAttribute title="{ProductId}"/>
+        <ObjectHeader
+                icon="sap-icon://product"
+                class="sapUiResponsivePadding--header" 
+                title="{Name}"
+                number="{
+							path: 'Price',
+							formatter: '.formatter.currencyValue'
+						}"
+		        numberUnit="{Currency}"
+                >
+                <statuses>
+			<ObjectStatus
+				text="{
+							path: 'Status',
+							formatter: '.formatter.statusValue'
+						}"
+				state="{
+							path: 'Status',
+							formatter: '.formatter.statuscolorValue'
+						}" />
+		</statuses>
+        </ObjectHeader>
+		</semantic:headerContent>
+		<semantic:content>
+			<Page
+		        id="page">
+            <footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Button id="save" type="Accept" visible="false" text="Save" press="onPressSave" />
+				<Button id="cancel" visible="false" text="Cancel" press="onPressCancel" />
+				<Button id="edit" icon="sap-icon://edit" text="Edit" type="Transparent" press="onPressEdit" />
+                <Button id="delete" icon="sap-icon://delete" visible="false" text="Delete" type="Reject" press="onPressDelete" />
+			</Toolbar>
+		</footer>
+	    </Page>
+		</semantic:content>
+		<!--Semantic ShareMenu Buttons-->
+
+		<semantic:closeAction>
+			<semantic:CloseAction
+					id="closeColumn"
+					press=".onCloseDetailPress"/>
+		</semantic:closeAction>
+
+		<semantic:fullScreenAction>
+			<semantic:FullScreenAction
+					id="enterFullScreen"
+					visible="{= !${device>/system/phone} &amp;&amp; !${appView>/actionButtonsInfo/midColumn/fullScreen}}"
+					press=".toggleFullScreen"/>
+		</semantic:fullScreenAction>
+		<semantic:exitFullScreenAction>
+			<semantic:ExitFullScreenAction
+					id="exitFullScreen"
+					visible="{= !${device>/system/phone} &amp;&amp; ${appView>/actionButtonsInfo/midColumn/fullScreen}}"
+					press=".toggleFullScreen"/>
+		</semantic:exitFullScreenAction>
+
+	</semantic:SemanticPage>
+
+</mvc:View>
