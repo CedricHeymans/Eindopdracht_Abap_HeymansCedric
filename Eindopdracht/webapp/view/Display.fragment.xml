@@ -1,0 +1,60 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	<VBox class="sapUiSmallMargin">
+		<f:SimpleForm id="SimpleFormDisplay354"
+			editable="false"
+			layout="ResponsiveGridLayout"
+			title="Product Details"
+			labelSpanXL="3"
+			labelSpanL="3"
+			labelSpanM="3"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="4"
+			emptySpanL="4"
+			emptySpanM="4"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			<f:content>
+                <Label text="Product Category" /> <Text text="{Category}" />
+				<Label text="Supplier ID" /> <Text text="{SupplierId}" />
+                <Label text="Product Name" /> <Text text="{Name}" />
+                <Label text="Product Description" />
+                <TextArea id="textAreaWithBinding" enabled="false" value="{Description}" showExceededText="true" maxLength="200" width="100%" valueState="{= ${/value}.length > 200 ? 'Warning' : 'None' }" valueLiveUpdate="false" liveChange="handleLiveChange" />
+                <Label text="Price" /> <Text text="{Price}" /> <Text text="EUR" />
+                <Label text="Unit of Measure" /> <Text text="{Uom}" />
+                <Label text="Weight" /> <Text text="{Weight}" /> <Text text="{WeightUnit}" />
+			</f:content>
+		</f:SimpleForm>
+        <f:SimpleForm id="SimpleFormDisplay355"
+			editable="false"
+			layout="ResponsiveGridLayout"
+			title="Dimensions"
+			labelSpanXL="3"
+			labelSpanL="3"
+			labelSpanM="3"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="4"
+			emptySpanL="4"
+			emptySpanM="4"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			<f:content>
+                <Label text="Width" /> <Text text="{Category}" />
+                <Label text="Depth" /> <Text text="{Depth}" />
+                <Label text="Height" /> <Text text="{Height}" />
+                <Label text="Unit" /> <Text text="{DimUnit}" />        
+			</f:content>
+		</f:SimpleForm>
+	</VBox>
+</core:FragmentDefinition>
